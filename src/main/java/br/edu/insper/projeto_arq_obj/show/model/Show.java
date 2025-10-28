@@ -1,7 +1,7 @@
 package br.edu.insper.projeto_arq_obj.show.model;
 
 import br.edu.insper.projeto_arq_obj.banda.model.Banda;
-import br.edu.insper.projeto_arq_obj.local.Local;
+import br.edu.insper.projeto_arq_obj.local.model.Local;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
