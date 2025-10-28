@@ -1,6 +1,7 @@
 package br.edu.insper.projeto_arq_obj.banda.model;
 
 import br.edu.insper.projeto_arq_obj.membro.model.Membro;
+import br.edu.insper.projeto_arq_obj.show.model.Show;
 import jakarta.persistence.*;
 
 import java.util.List;
