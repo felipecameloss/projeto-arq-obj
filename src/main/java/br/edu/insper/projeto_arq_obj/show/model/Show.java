@@ -56,4 +56,9 @@ public class Show {
     public void setBandas(List<Banda> bandas) {
         this.bandas = bandas;
     }
+
+    public void addBanda(Banda banda) {
+        bandas.add(banda);
+    }
+
 }
