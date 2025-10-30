@@ -21,4 +21,59 @@ public class Local {
     @OneToMany(mappedBy = "local")
     private List<Banda> bandas;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getEstabelecimento() {
+        return estabelecimento;
+    }
+
+    public void setEstabelecimento(String estabelecimento) {
+        this.estabelecimento = estabelecimento;
+    }
+
+    public List<Banda> getBandas() {
+        return bandas;
+    }
+
+    public void setBandas(List<Banda> bandas) {
+        this.bandas = bandas;
+    }
 }

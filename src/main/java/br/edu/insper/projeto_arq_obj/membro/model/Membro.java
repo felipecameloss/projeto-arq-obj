@@ -65,4 +65,5 @@ public class Membro {
     public void setBandas(List<Banda> bandas) {
         this.bandas = bandas;
     }
+
 }
