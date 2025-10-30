@@ -1,5 +1,6 @@
-package br.edu.insper.projeto_arq_obj.autenticacao;
+package br.edu.insper.projeto_arq_obj.autenticacao.service;
 
+import br.edu.insper.projeto_arq_obj.autenticacao.model.Usuario;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 

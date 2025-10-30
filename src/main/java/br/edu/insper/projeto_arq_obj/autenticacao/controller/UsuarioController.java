@@ -1,5 +1,7 @@
-package br.edu.insper.projeto_arq_obj.autenticacao;
+package br.edu.insper.projeto_arq_obj.autenticacao.controller;
 
+import br.edu.insper.projeto_arq_obj.autenticacao.service.UsuarioService;
+import br.edu.insper.projeto_arq_obj.autenticacao.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
