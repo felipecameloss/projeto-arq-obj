@@ -4,6 +4,7 @@ import br.edu.insper.projeto_arq_obj.banda.model.Banda;
 import br.edu.insper.projeto_arq_obj.banda.repository.BandaRepository;
 import br.edu.insper.projeto_arq_obj.local.dto.ResponseLocalDTO;
 import br.edu.insper.projeto_arq_obj.local.model.Local;
+import br.edu.insper.projeto_arq_obj.local.repository.LocalRepository;
 import br.edu.insper.projeto_arq_obj.show.dto.CreateShowDTO;
 import br.edu.insper.projeto_arq_obj.show.dto.EditShowDTO;
 import br.edu.insper.projeto_arq_obj.show.dto.ResponseShowDTO;
@@ -26,12 +27,18 @@ public class ShowService {
     @Autowired
     ShowRepository showRepository;
 
-    public ResponseShowDTO adicionarShow(CreateShowDTO createShowDTO) {
+    @Autowired
+    LocalRepository localRepository;
+
+    public ResponseShowDTO criarShow(CreateShowDTO createShowDTO) {
         Show show = new Show();
         show.setNome(createShowDTO.nome());
         show.setData(createShowDTO.data());
-        show.setLocal(createShowDTO.local());
-        show.setBandas(createShowDTO.bandas());
+
+        Local local = localRepository.findById(createShowDTO.idLocal())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        show.setLocal(local);
 
         showRepository.save(show);
 
@@ -49,8 +56,10 @@ public class ShowService {
             show.setData(showAtualizado.data());
         }
 
-        if (showAtualizado.local() != null) {
-            show.setLocal(showAtualizado.local());
+        if (showAtualizado.idLocal() != null) {
+            Local local = localRepository.findById(showAtualizado.idLocal())
+                    .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+            show.setLocal(local);
         }
 
         if (showAtualizado.bandas() != null) {
@@ -60,13 +69,6 @@ public class ShowService {
         showRepository.save(show);
 
         return ResponseShowDTO.toDto(show);
-    }
-
-    public void setLocal(Local local, Integer idShow) {
-        Show show = showRepository.findById(idShow)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-
-        show.setLocal(local);
     }
 
     public List<ResponseShowDTO> listarTodos() {
@@ -84,6 +86,20 @@ public class ShowService {
 
     public void deletarShow(Integer id) {
         showRepository.deleteById(id);
+    }
+
+    public void adicionarBanda(Banda banda, Integer id) {
+        Show show = showRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        show.addBanda(banda);
+    }
+
+    public void setarLocal(Local local, Integer idShow) {
+        Show show = showRepository.findById(idShow)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        show.setLocal(local);
     }
 
 }

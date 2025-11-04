@@ -35,29 +35,18 @@ public class ShowController {
     public ResponseShowDTO adicionarShow(@RequestHeader(name = "token") String token, @RequestBody CreateShowDTO show) {
         usuarioService.validarToken(token);
 
-        return showService.adicionarShow(show);
+        return showService.criarShow(show);
     }
 
     @Operation(
             summary = "Editar um show",
             description = "Edita um show, modificando os campos preenchidos"
     )
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public ResponseShowDTO editarShow(@RequestHeader(name = "token") String token, @PathVariable Integer id, @RequestBody EditShowDTO show) {
         usuarioService.validarToken(token);
 
         return showService.editarShow(id, show);
-    }
-
-    @Operation(
-            summary = "Vincular um local",
-            description = "Vincula um local a um show"
-    )
-    @PutMapping("{id")
-    public void setLocal(@RequestHeader(name = "token") String token, @PathVariable Integer id, @RequestBody Local local) {
-        usuarioService.validarToken(token);
-
-        showService.setLocal(local, id);
     }
 
     @Operation(
@@ -73,7 +62,7 @@ public class ShowController {
             summary = "Buscar show por id",
             description = "Busca um show especifico por meu de seu id"
     )
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Show buscarPorId(@PathVariable Integer id) {
         return showService.buscarPorId(id);
     }

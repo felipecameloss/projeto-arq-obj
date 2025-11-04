@@ -5,9 +5,7 @@ import br.edu.insper.projeto_arq_obj.local.model.Local;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 public class Show {
@@ -30,7 +28,7 @@ public class Show {
             joinColumns = @JoinColumn(name = "id_show"),
             inverseJoinColumns = @JoinColumn(name = "id_banda")
     )
-    private Set<Banda> bandas = new HashSet<>();
+    private List<Banda> bandas = new ArrayList<>();
 
 
     public Integer getId() {
@@ -57,11 +55,11 @@ public class Show {
         this.data = data;
     }
 
-    public Set<Banda> getBandas() {
+    public List<Banda> getBandas() {
         return bandas;
     }
 
-    public void setBandas(Set<Banda> bandas) {
+    public void setBandas(List<Banda> bandas) {
         this.bandas = bandas;
     }
 

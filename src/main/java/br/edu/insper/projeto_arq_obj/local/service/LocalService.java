@@ -34,8 +34,6 @@ public class LocalService {
         local.setEndereco(createLocalDTO.endereco());
         local.setEstabelecimento(createLocalDTO.estabelecimento());
 
-        showService.setLocal(local, createLocalDTO.idShow());
-
         localRepository.save(local);
 
         return ResponseLocalDTO.toDto(local);
@@ -66,7 +64,7 @@ public class LocalService {
         }
 
         if (localAtualizar.idShow() != null) {
-            showService.setLocal(local, localAtualizar.idShow());
+            showService.setarLocal(local, localAtualizar.idShow());
         }
 
         localRepository.save(local);

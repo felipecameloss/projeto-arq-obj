@@ -6,5 +6,5 @@ import br.edu.insper.projeto_arq_obj.local.model.Local;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public record CreateShowDTO(String nome, LocalDateTime data, Local local, List<Banda> bandas) {
+public record CreateShowDTO(String nome, LocalDateTime data, Integer idLocal) {
 }
