@@ -29,7 +29,7 @@ public class MembroService {
 
     public ResponseMembroDTO criarMembro(CreateMembroDTO creatMembroDTO){
         Membro membro = new Membro();
-        membro.setMembro(creatMembroDTO.membro());
+        membro.setNome(creatMembroDTO.membro());
         membro.setCpf(creatMembroDTO.cpf());
         membro.setOcupacao(creatMembroDTO.ocupacao());
 
@@ -47,7 +47,7 @@ public class MembroService {
         Membro membro = buscarPorId(id);
 
         if (membroAtualizar.membro() != null){
-            membro.setMembro(membroAtualizar.membro());
+            membro.setNome(membroAtualizar.membro());
         }
 
         if (membroAtualizar.ocupacao() != null){

@@ -67,7 +67,4 @@ public class Membro {
         this.bandas = bandas;
     }
 
-    public void setMembro(String membro) {
-
-    }
 }

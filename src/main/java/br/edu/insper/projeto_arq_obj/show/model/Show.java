@@ -4,6 +4,7 @@ import br.edu.insper.projeto_arq_obj.banda.model.Banda;
 import br.edu.insper.projeto_arq_obj.local.model.Local;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -16,7 +17,7 @@ public class Show {
     @Column(nullable = false)
     private String nome;
     @Column(nullable = false)
-    private LocalDateTime data;
+    private LocalDate data;
 
     @ManyToOne
     @JoinColumn(name = "id_local")
@@ -47,11 +48,11 @@ public class Show {
         this.nome = nome;
     }
 
-    public LocalDateTime getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(LocalDateTime data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 
