@@ -22,9 +22,6 @@ public class BandaService {
     private BandaRepository bandaRepository;
 
     @Autowired
-    private MembroService membroService;
-
-    @Autowired
     private ShowService showService;
 
     //aplicando o CRUD de banda

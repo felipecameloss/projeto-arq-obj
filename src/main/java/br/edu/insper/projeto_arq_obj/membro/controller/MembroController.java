@@ -1,5 +1,10 @@
 package br.edu.insper.projeto_arq_obj.membro.controller;
 
+import br.edu.insper.projeto_arq_obj.autenticacao.service.UsuarioService;
+import br.edu.insper.projeto_arq_obj.membro.dto.CreateMembroDTO;
+import br.edu.insper.projeto_arq_obj.membro.dto.EditMembroDTO;
+import br.edu.insper.projeto_arq_obj.membro.dto.ResponseMembroDTO;
+import br.edu.insper.projeto_arq_obj.membro.service.MembroService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
