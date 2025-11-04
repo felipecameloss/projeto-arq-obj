@@ -3,6 +3,7 @@ package br.edu.insper.projeto_arq_obj.membro.model;
 import br.edu.insper.projeto_arq_obj.banda.model.Banda;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,10 +22,10 @@ public class Membro {
     @ManyToMany
     @JoinTable(
             name = "banda_membro",
-            joinColumns = @JoinColumn(name = "id_banda"),
-            inverseJoinColumns = @JoinColumn(name = "id_membro")
+            joinColumns = @JoinColumn(name = "id_membro"),
+            inverseJoinColumns = @JoinColumn(name = "id_banda")
     )
-    private List<Banda> bandas;
+    private List<Banda> bandas = new ArrayList<>();
 
     public Integer getId() {
         return id;

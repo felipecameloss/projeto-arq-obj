@@ -5,7 +5,7 @@ import br.edu.insper.projeto_arq_obj.local.model.Local;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.*;
 
 @Entity
 public class Show {
@@ -22,8 +22,14 @@ public class Show {
     @JoinColumn(name = "id_local")
     private Local local;
 
-    @ManyToMany(mappedBy = "banda")
-    private List<Banda> bandas;
+    @ManyToMany
+    @JoinTable(
+            name = "show_banda",
+            joinColumns = @JoinColumn(name = "id_show"),
+            inverseJoinColumns = @JoinColumn(name = "id_banda")
+    )
+    private List<Banda> bandas = new ArrayList<>();
+
 
     public Integer getId() {
         return id;

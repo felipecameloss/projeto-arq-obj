@@ -4,7 +4,10 @@ import br.edu.insper.projeto_arq_obj.membro.model.Membro;
 import br.edu.insper.projeto_arq_obj.show.model.Show;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Banda {
@@ -19,16 +22,12 @@ public class Banda {
     private String genero;
     private String gravadora;
 
-    @ManyToMany(mappedBy = "membros")
-    private List<Membro> membros;
+    @ManyToMany(mappedBy = "bandas")
+    private List<Membro> membros = new ArrayList<>();
 
-    @ManyToMany
-    @JoinTable(
-            name = "banda_show",
-            joinColumns = @JoinColumn(name = "id_banda"),
-            inverseJoinColumns = @JoinColumn(name = "id_show")
-    )
-    private List<Show> shows;
+    @ManyToMany(mappedBy = "bandas")  // <- tem que ser "bandas" mesmo
+    private Set<Show> shows = new HashSet<>();
+
 
     public Integer getId() {
         return id;
