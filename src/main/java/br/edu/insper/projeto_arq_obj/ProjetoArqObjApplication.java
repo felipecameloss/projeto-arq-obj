@@ -9,5 +9,4 @@ public class ProjetoArqObjApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ProjetoArqObjApplication.class, args);
 	}
-
 }
