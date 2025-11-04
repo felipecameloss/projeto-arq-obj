@@ -1,5 +1,12 @@
 package br.edu.insper.projeto_arq_obj.membro.service;
 
+import br.edu.insper.projeto_arq_obj.banda.model.Banda;
+import br.edu.insper.projeto_arq_obj.banda.repository.BandaRepository;
+import br.edu.insper.projeto_arq_obj.banda.service.BandaService;
+import br.edu.insper.projeto_arq_obj.membro.dto.CreateMembroDTO;
+import br.edu.insper.projeto_arq_obj.membro.dto.EditMembroDTO;
+import br.edu.insper.projeto_arq_obj.membro.dto.ResponseMembroDTO;
+import br.edu.insper.projeto_arq_obj.membro.model.Membro;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -17,11 +24,19 @@ public class MembroService {
     @Autowired
     private BandaService bandaService;
 
-    public ResponseMembroDTO criarMembro(CreatMembroDTO creatMembroDTO){
+    @Autowired
+    private BandaRepository bandaRepository;
+
+    public ResponseMembroDTO criarMembro(CreateMembroDTO creatMembroDTO){
         Membro membro = new Membro();
         membro.setMembro(creatMembroDTO.membro());
         membro.setCpf(creatMembroDTO.cpf());
         membro.setOcupacao(creatMembroDTO.ocupacao());
+
+        Banda banda = bandaRepository.findById(creatMembroDTO.idBanda())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        banda.addMembro(membro);
 
         membroRepository.save(membro);
 

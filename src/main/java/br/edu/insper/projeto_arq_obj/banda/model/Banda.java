@@ -68,4 +68,8 @@ public class Banda {
     public void setMembros(List<Membro> membros) {
         this.membros = membros;
     }
+
+    public void addMembro(Membro membro) {
+        membros.add(membro);
+    }
 }
