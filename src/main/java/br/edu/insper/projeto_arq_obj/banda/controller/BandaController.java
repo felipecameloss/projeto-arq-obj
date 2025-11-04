@@ -4,7 +4,6 @@ import br.edu.insper.projeto_arq_obj.autenticacao.service.UsuarioService;
 import br.edu.insper.projeto_arq_obj.banda.dto.CreateBandaDTO;
 import br.edu.insper.projeto_arq_obj.banda.dto.EditBandaDTO;
 import br.edu.insper.projeto_arq_obj.banda.dto.ResponseBandaDTO;
-import br.edu.insper.projeto_arq_obj.banda.model.Banda;
 import br.edu.insper.projeto_arq_obj.banda.service.BandaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -59,6 +58,10 @@ public class BandaController {
 
     }
 
+    @Operation(
+            summary = "Deleta uma banda",
+            description = "Deleta uma banda removendo do banco de dados"
+    )
     @DeleteMapping("/{id}")
     public void deletarBanda(@RequestHeader(name = "token") String token, @PathVariable Integer id) {
 

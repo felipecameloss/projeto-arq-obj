@@ -61,4 +61,11 @@ public class Show {
         bandas.add(banda);
     }
 
+    public Local getLocal() {
+        return local;
+    }
+
+    public void setLocal(Local local) {
+        this.local = local;
+    }
 }

@@ -1,6 +1,7 @@
 package br.edu.insper.projeto_arq_obj.local.model;
 
 import br.edu.insper.projeto_arq_obj.banda.model.Banda;
+import br.edu.insper.projeto_arq_obj.show.model.Show;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public class Local {
     private String estabelecimento;
 
     @OneToMany(mappedBy = "local")
-    private List<Banda> bandas;
+    private List<Show> shows;
 
     public Integer getId() {
         return id;
@@ -69,11 +70,11 @@ public class Local {
         this.estabelecimento = estabelecimento;
     }
 
-    public List<Banda> getBandas() {
-        return bandas;
+    public List<Show> getShows() {
+        return shows;
     }
 
-    public void setBandas(List<Banda> bandas) {
-        this.bandas = bandas;
+    public void setShows(List<Show> shows) {
+        this.shows = shows;
     }
 }

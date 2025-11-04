@@ -2,6 +2,7 @@ package br.edu.insper.projeto_arq_obj.show.service;
 
 import br.edu.insper.projeto_arq_obj.banda.model.Banda;
 import br.edu.insper.projeto_arq_obj.banda.repository.BandaRepository;
+import br.edu.insper.projeto_arq_obj.local.model.Local;
 import br.edu.insper.projeto_arq_obj.show.model.Show;
 import br.edu.insper.projeto_arq_obj.show.repository.ShowRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,13 @@ public class ShowService {
 
         show.addBanda(banda);
 
+    }
+
+    public void setLocal(Local local, Integer idShow) {
+        Show show = showRepository.findById(idShow)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        show.setLocal(local);
     }
 
 }
