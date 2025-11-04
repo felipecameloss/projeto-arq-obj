@@ -60,6 +60,4 @@ public class MembroService {
         return membroRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
-
-    
 }

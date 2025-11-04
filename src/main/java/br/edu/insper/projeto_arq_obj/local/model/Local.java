@@ -12,7 +12,6 @@ public class Local {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private String pais;
     private String estado;
     private String cidade;
